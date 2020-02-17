@@ -22,6 +22,7 @@ io.on('connection', function (socket) {
     }
     console.log('watch:::::: => success')
     lastSource = source
+    initialSource = source
     io.emit('update-native-source', source) // 向所有客户端发送信息
   })
 

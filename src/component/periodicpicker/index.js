@@ -36,7 +36,35 @@ import PeriodicPicker from './PeriodicPicker.vue'
 export default {
   name: 'periodicpicker',
   mixins: [XtWeb.Engine.UI.View],
+  created () {
+    if (this.viewRule.value) {
+      this.value = this.executeLogicExpression(this.viewRule.value, this.engine)
+    }
+  },
+  methods: {
+    getView () {
+      return this.value
+    },
+    setView (data, type) {
+      if (typeof data === 'number') {
+        data = String(data)
+      }
+      this.value = data
+    }
+  },
   render (h) {
-    return h(PeriodicPicker)
+    return h(PeriodicPicker, {
+      props: {
+        ...this.translate(this.viewRule),
+        ...this.logicExpression(this.viewRule),
+        value: this.value,
+        selectRange: this.viewRule.combinedunit
+      },
+      on: {
+        input: (value) => {
+          this.value = value
+        }
+      }
+    })
   }
 }

@@ -3,7 +3,8 @@ const { smart } = require('webpack-merge')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = smart(baseConfig, {
-  mode: 'production',
+  // mode: 'production',
+  mode: 'development',
   plugins: [
     new CleanWebpackPlugin()
   ]

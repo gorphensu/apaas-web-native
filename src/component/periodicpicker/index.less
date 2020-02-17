@@ -1,2 +1,18 @@
-.xt-engine-periodicpicker {
+.xt-periodicpicker-panel {
+  position: relative;
+  display: flex;
+  border: 1px solid #bfcbd9;
+  .part {
+    flex: 1;
+    border-right: 1px solid #bfcbd9;
+    > header {
+      background: #eef1f6;
+      height: 32px;
+      text-align: center;
+      line-height: 32px;
+    }
+  }
+  .part:last-child {
+    border-right: none;
+  }
 }
