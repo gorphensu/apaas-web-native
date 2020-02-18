@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev": "concurrently \"npm run dev:server\" \"npm run serve\"",
+    "build": "webpack --config ./build/webpack.prod.conf.js",
+    "serve:vue": "vue-cli-service serve",
+    "build:vue": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "dev": "concurrently \"npm run dev:server\" \"npm run serve\"",
     "dev:component": "webpack --config ./build/webpack.dev.conf.js",
     "build:component": "webpack --config ./build/webpack.prod.conf.js",
     "dev:server": "node ./server/server.js"
