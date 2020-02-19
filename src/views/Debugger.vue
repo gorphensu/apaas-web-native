@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import { WEB_ROOT, DEV_PROTOCOL } from '../config'
+import { WEB_ROOT } from '../config'
+import DEV_PROTOCOL from '../config/page'
 import io from 'socket.io-client'
-// import Component from '../component/index'
 import ComponentJSon from '../component/package.json'
 export default {
   data () {
