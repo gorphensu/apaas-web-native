@@ -1,10 +1,23 @@
 const express = require('express')
 const app = express()
+// const ws = require('ws')
 const http = require('http').createServer(app)
-const io = require('socket.io')(http)
+const io = require('socket.io')(http, {
+  // wsEngine: 'ws',
+  // serveClient: false,
+  // pingTimeout: 60000,
+  // pingInterval: 25000,
+  // upgradeTimeout: 10000,
+  // maxHttpBufferSize: 100000000,
+  // allowUpgrades: true,
+  // transports: 'websocket'
+})
 const Task = require('./task')
+const cors = require('cors')
 
 const task = new Task()
+
+app.use(cors())
 
 let initialSource = ''
 task.compile(function (source) {

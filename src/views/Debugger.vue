@@ -37,10 +37,13 @@ export default {
           socket.emit('update-native-source')
         }
       })
-      const socket = io('http://127.0.0.1:9090')
+      const socket = io('http://127.0.0.1:9090', {
+        // transports: ['websocket', 'polling', 'flashsocket']
+      })
       // 接收服务端推送的信息
       socket.on('update-native-source', (res) => {
         console.log('执行一次成功', res)
+        debugger
         iframe.contentWindow.postMessage({
           type: 'updateNativeComponent',
           newCode: res,
