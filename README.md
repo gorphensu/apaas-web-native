@@ -18,8 +18,8 @@ yarn dev or npm run dev
 yarn build or npm run build
 ```
 
-- 打包后的文件在文件夹 bundle 下 zip.zip
-- 将 zip.zip 文件上传到 IDE 二开控件页签下即可
+- 打包后的文件在文件夹 bundle 下 dist.zip
+- 将 dist.zip 文件上传到 IDE 二开控件页签下即可
 
 ## 开发说明
 
