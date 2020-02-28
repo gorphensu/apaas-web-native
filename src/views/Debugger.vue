@@ -43,7 +43,6 @@ export default {
       // 接收服务端推送的信息
       socket.on('update-native-source', (res) => {
         console.log('执行一次成功', res)
-        debugger
         iframe.contentWindow.postMessage({
           type: 'updateNativeComponent',
           newCode: res,

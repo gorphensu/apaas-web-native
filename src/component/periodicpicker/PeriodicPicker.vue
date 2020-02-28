@@ -82,6 +82,7 @@
         @mouseenter.native="handleMouseEnterInput"
         @mouseleave.native="handleMouseLeaveInput"
       />
+      <div class="warning-message" v-if="hasWarning">没有<span>{{ selectedValue && selectedValue[1] }}</span>号的月份，将自动处理为当月最后一日</div>
     </el-form-item>
   </div>
 </template>
@@ -169,17 +170,23 @@ export default {
         return ''
       }
     },
+    hasWarning () {
+      if (this.selectedValue[1] && parseInt(this.selectedValue[1]) > 28) {
+        return true
+      }
+      return false
+    },
     hasMonth () {
-      return ~this.selectRange.indexOf('month')
+      return !!~this.selectRange.indexOf('month')
     },
     hasDay () {
       return this.selectRange === 'month-minute' || this.selectRange === 'day-minute' || this.selectRange === 'day'
     },
     hasHour () {
-      return ~this.selectRange.indexOf('minute') || this.selectRange === 'hour'
+      return !!~this.selectRange.indexOf('minute') || this.selectRange === 'hour'
     },
     hasMinute () {
-      return ~this.selectRange.indexOf('minute')
+      return !!~this.selectRange.indexOf('minute')
     },
     dayDisabled () {
       return !this.selectedValue[0] && this.hasMonth
@@ -297,7 +304,13 @@ export default {
     },
     // 每次手动变更的时候保存旧的值
     handleItemChange (index, newVal, oldValue) {
-      // this.oldValue[index] = oldValue
+    //   // this.oldValue[index] = oldValue
+    //   if (index === 1) {
+    //     if (parseInt(newVal, 10) > 28) {
+    //       // 需要提示确认是否真的选这个数据，因为不是每个月都有28以上得，2月 28 29
+
+    //     }
+    //   }
     },
     handlePopoverHide () {
       // 只有不是点击cancel的时候才执行confirm
