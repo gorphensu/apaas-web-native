@@ -18,10 +18,12 @@ export default {
       "code": "layout-6254247148842803",
       "eventlist": [],
       "flex": "1",
+      "flexshrink": "1",
       "content": [{
         "type": "periodicpicker",
         "code": "native-periodicpicker-1",
         "width": "300",
+        "placeholder": "placeholder",
         "title": "标题"
       }, {
         "type": "periodicpicker",
@@ -61,12 +63,88 @@ export default {
         "width": "300",
         "title": "month-minute",
         "combinedunit": "month-minute"
+      }, {
+        "type": "periodicpicker",
+        "code": "native-periodicpicker-8",
+        "width": "300",
+        "title": "month-minute",
+        "combinedunit": "month-minute",
+        "readonly": "1",
+        "placeholder": "readonly"
+      }, {
+        "type": "periodicpicker",
+        "code": "native-periodicpicker-9",
+        "width": "300",
+        "title": "month-minute",
+        "combinedunit": "month-minute",
+        "hidden": "1",
+        "placeholder": "hidden"
+      }, {
+        "type": "periodicpicker",
+        "code": "native-periodicpicker-10",
+        "width": "",
+        "title": "month-minute",
+        "combinedunit": "month-minute",
+        "placeholder": "默认宽度"
+      }, {
+        "type": "button",
+        "code": "button-1",
+        "text": "添加数据",
+        "title": "添加数据",
+        "displaytype": "success",
+        "eventlist": [{
+          "trigger": "onclicked",
+          "handler": "add"
+        }]
+      }, {
+        "type": "table",
+        "code": "table-1",
+        "name": "table",
+        "height": "200",
+        "eventlist": [{
+          "trigger": "onload",
+          "handler": ""
+        }],
+        "rows": {
+          "code": "table-row",
+          "type": "row",
+          "flex": "1",
+          "columnitems": [{
+            "type": "text",
+            "code": "text-table-index",
+            "eventlist": [],
+            "name": "index",
+            "title": "序号",
+            "width": "0"
+          }, {
+            "type": "periodicpicker",
+            "code": "periodicpicker-table-1",
+            "eventlist": [],
+            "name": "periodicpicker",
+            "title": "周期",
+            "combinedunit": "hour-minute"
+          }]
+        }
       }]
     }
   },
   "presenter": {
     "initial": [],
     "interface": [],
-    "handlers": []
+    "handlers": [{
+      "code": "add",
+      "actions": [{
+        "code": "add-action-1",
+        "type": "flycode",
+        "script": `
+        debugger;
+        const datas = [{
+          index: 1,
+          periodicpicker: '19'
+        }]
+        Page.getArrayCtrl('table').setValue(datas)
+        `
+      }]
+    }]
   }
 }

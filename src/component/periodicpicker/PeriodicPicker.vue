@@ -1,5 +1,5 @@
 <template>
-  <div class="xt-periodicpicker">
+  <div :style="viewStyle" class="xt-periodicpicker">
     <el-form-item
       v-if="displayStyle !== 'text'"
       :label="title || ''"
@@ -10,13 +10,14 @@
     >
       <!-- {{ value }} -->
       <!-- {{ inputValue }} -->
-      <!-- {{ selectedValue }} {{ inputLabel }} | {{ inputValue }} -->
+      <!-- {{ inputLabel }} | {{ inputValue }} -->
       <el-popover
         ref="popover"
         popper-class="el-picker-panel time-select"
         placement="bottom"
         width="320"
         v-model="popoverStatus"
+        :disabled="readonly"
         trigger="click"
         @hide="handlePopoverHide"
         @show="handlePopoverShow"
@@ -76,6 +77,7 @@
         :placeholder="placeholder"
         :icon="inputIcon"
         :readonly="true"
+        :disabled="readonly"
         v-popover:popover
         :on-icon-click="handleIconClick"
         :size="size"
@@ -227,19 +229,19 @@ export default {
       } else if (selectRange === 'month') {
         this.selectedValue.splice(0, 1, this.value + '')
       } else if (selectRange === 'hour-minute') {
-        let [ hour, minute ] = this.value.split(':')
+        let [ hour, minute = '0' ] = this.value.split(':')
         this.selectedValue.splice(2, 1, hour + '')
         this.selectedValue.splice(3, 1, minute + '')
       } else if (selectRange === 'day-minute') {
-        let [ day, other ] = this.value.split(' ')
-        let [ hour, minute ] = other.split(':')
+        let [ day, other = ':' ] = this.value.split(' ')
+        let [ hour, minute = '0' ] = other.split(':')
         this.selectedValue.splice(1, 1, day + '')
         this.selectedValue.splice(2, 1, hour + '')
         this.selectedValue.splice(3, 1, minute + '')
       } else if (selectRange === 'month-minute') {
-        let [ monthAndDay, hourAndMinute ] = this.value.split(' ')
-        let [ month, day ] = monthAndDay.split('-')
-        let [ hour, minute ] = hourAndMinute.split(':')
+        let [ monthAndDay, hourAndMinute = ':' ] = this.value.split(' ')
+        let [ month, day = '0' ] = monthAndDay.split('-')
+        let [ hour, minute = '0' ] = hourAndMinute.split(':')
         this.selectedValue.splice(0, 1, month + '')
         this.selectedValue.splice(1, 1, day + '')
         this.selectedValue.splice(2, 1, hour + '')
@@ -326,7 +328,7 @@ export default {
       this.oldValue = this.selectedValue.map(item => {
         return item
       })
-      if (!this.inputValue) {
+      if (!this.inputValue && !this.readonly) {
         this.setDefaultValue()
       }
     }
