@@ -70,7 +70,8 @@ export default {
         "title": "month-minute",
         "combinedunit": "month-minute",
         "readonly": "1",
-        "placeholder": "readonly"
+        "placeholder": "readonly",
+        "value": "12-09 09:09"
       }, {
         "type": "periodicpicker",
         "code": "native-periodicpicker-9",

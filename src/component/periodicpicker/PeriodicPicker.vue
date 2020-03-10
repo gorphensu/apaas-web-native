@@ -249,7 +249,7 @@ export default {
       }
     },
     handleMouseEnterInput () {
-      if (this.inputValue) {
+      if (this.inputValue && !this.readonly) {
         this.inputIcon = 'circle-close'
       } else {
         this.inputIcon = 'caret-bottom'
@@ -259,6 +259,9 @@ export default {
       this.inputIcon = 'caret-bottom'
     },
     handleIconClick (e) {
+      if (this.readonly) {
+        return
+      }
       e.stopPropagation()
       this.clearValue()
     },
