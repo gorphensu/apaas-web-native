@@ -56,6 +56,32 @@ module.exports = {
           //   }
           // },
           'less-loader']
+      }, {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          esModule: false,
+          limit: 300000,
+          name: '[name].[ext]?[hash]'
+        }
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          esModule: false,
+          limit: 300000,
+          name: '[name].[ext]?[hash]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          esModule: false,
+          limit: 300000,
+          name: '[name].[ext]?[hash]'
+        }
       }]
   },
   plugins: [
