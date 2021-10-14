@@ -6,7 +6,7 @@
 
 <script>
 import { WEB_ROOT } from '../config'
-import DEV_PROTOCOL from '../config/page'
+import DEV_PROTOCOL from '../config/page-infotable-cell-demo-test.js'
 import io from 'socket.io-client'
 import ComponentJSon from '../component/package.json'
 export default {
@@ -65,7 +65,7 @@ export default {
 <style lang="less" scoped>
 .debugger-container > iframe {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 </style>
