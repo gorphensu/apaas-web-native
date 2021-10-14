@@ -5,6 +5,7 @@ import Render from './index.js' // 必须指向 ./index.js
  * Controller 控制器
  * 表格在渲染单元格组件前，先会创建该组件的控制器，控制器存放组件的value值等数据
 */
+
 export default {
   name: 'infotable-cell-demo-ctrl',
   mixins: [XtWeb.Engine.BaseController], // 必须继承 BaseController 基础组件
@@ -24,15 +25,18 @@ export default {
         }
       })
     },
+    // 取值方法
     getView () {
       return this.value
     },
+    // 设值方法
     setView (data, type) {
       if (typeof data === 'number') {
         data = String(data)
       }
       this.value = data
     },
+    // 定义一个点击事件
     handleClicked (e) {
       // 点击事件回调
       this.executeEvent('onclicked')

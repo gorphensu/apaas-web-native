@@ -1,6 +1,7 @@
 // 这是infotable 内使用的二开控件的例子
 
 // 入口文件
+// 这里不需要写 mixins: [XtWeb.Engine.UI.View]
 
 import View from './view.vue'
 export default {
