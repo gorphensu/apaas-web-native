@@ -26,11 +26,13 @@ export default {
       })
     },
     // 取值方法
-    getView () {
+    // 可以通过getter对象判断要取的值或其他属性值
+    getView (type, getter) {
       return this.value
     },
     // 设值方法
-    setView (data, type) {
+    // 可以通过setter对象判断要设置的值或其他属性值
+    setView (data, type, setter) {
       if (typeof data === 'number') {
         data = String(data)
       }
