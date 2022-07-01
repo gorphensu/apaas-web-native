@@ -105,9 +105,9 @@ export default {
       ]
     }
   },
-  created() {
+  created () {
     this.ctrl.$watch('value', () => {
-        this.$forceUpdate()
+      this.$forceUpdate()
     })
   },
   methods: {

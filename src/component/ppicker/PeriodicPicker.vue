@@ -174,10 +174,7 @@ export default {
       }
     },
     hasWarning () {
-      if (this.selectedValue[1] && parseInt(this.selectedValue[1]) > 28) {
-        return true
-      }
-      return false
+      return !!(this.selectedValue[1] && parseInt(this.selectedValue[1]) > 28)
     },
     hasMonth () {
       return !!~this.selectRange.indexOf('month')
@@ -217,8 +214,7 @@ export default {
       this.updateValue()
     }
   },
-  mounted() {
-    this.$refs['popover']
+  mounted () {
   },
   methods: {
     updateValue () {
@@ -339,16 +335,15 @@ export default {
         this.setDefaultValue()
       }
     },
-    handleClick(e){
+    handleClick (e) {
       // this.$el.style.overflow = 'auto'
       // e.currentTarget.style.position = 'fixed'
       const originReference = this.$refs['popover'].$refs['reference']
-      const { pageX, pageY } = e
       const reference = document.elementFromPoint(e.pageX, e.pageY)
       this.$refs['popover'].$refs['reference'] = reference
       setTimeout(() => {
-         this.$refs['popover'].$refs['reference'] = originReference
-      });
+        this.$refs['popover'].$refs['reference'] = originReference
+      })
     }
   }
 }

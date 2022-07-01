@@ -6,7 +6,7 @@ import Render from './render.js'
 export default {
   name: 'shadowvue',
   mixins: [XtWeb.Engine.BaseController],
-  data() {
+  data () {
     return {}
   },
   created () {
