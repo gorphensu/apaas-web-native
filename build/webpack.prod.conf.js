@@ -6,6 +6,7 @@ const FileMangerPlugin = require('filemanager-webpack-plugin')
 module.exports = smart(baseConfig, {
   mode: 'production',
   // mode: 'development',
+  devtool: false, // 正式打包关闭sourcemap,减小体积
   output: {
     path: path.resolve(__dirname, '../bundle', 'dist'),
     filename: 'index.js',
