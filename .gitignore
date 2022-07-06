@@ -2,6 +2,7 @@
 node_modules
 /dist
 /bundle
+/lib-bundle
 
 # local env files
 .env.local
