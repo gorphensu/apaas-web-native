@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import { WEB_ROOT } from '../config'
-import DEV_PROTOCOL from '../config/page-infotable-cell-demo-test.js'
+import { WEB_ROOT } from '@/config'
+import DEV_PROTOCOL from '@/config/dep-erkai-demo.js'
 import io from 'socket.io-client'
 import ComponentJSon from '../component/package.json'
 export default {
