@@ -6,7 +6,7 @@
 
 <script>
 import { WEB_ROOT } from '../config'
-import DEV_PROTOCOL from '../config/page-infotable-cell-demo-test.js'
+import DEV_PROTOCOL from '../config/page.js'
 import io from 'socket.io-client'
 import ComponentJSon from '../component/package.json'
 export default {
@@ -46,7 +46,8 @@ export default {
         iframe.contentWindow.postMessage({
           type: 'updateNativeComponent',
           newCode: res,
-          compName: ComponentJSon.name
+          compName: ComponentJSon.name,
+          isShadow: ComponentJSon.isShadow
           // compName: 'my-testctrl'
         }, '*')
         iframe.contentWindow.postMessage({

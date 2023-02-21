@@ -1,5 +1,5 @@
 export default {
-  name: 'giaogiaotesttt',
+  name: 'vue-shadow',
   props: ['ctrl'],
   render (h) {
     return h('div', {

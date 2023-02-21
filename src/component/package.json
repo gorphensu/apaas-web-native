@@ -1,5 +1,6 @@
 {
-  "name": "infotable-cell-demo",
+  "name": "daliintegral",
   "version": "0.1",
-  "main": "./index.js"
+  "main": "./index.js",
+  "isShadow": true
 }

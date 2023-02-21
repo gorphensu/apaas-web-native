@@ -4,7 +4,7 @@ import Render from './render.js'
  * controller控制器，所有的状态数据需要放入这里进行统一管理
  */
 export default {
-  name: 'shadowvue',
+  name: 'vue-shadow',
   mixins: [XtWeb.Engine.BaseController],
   data () {
     return {}

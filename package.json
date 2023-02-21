@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "core-js": "^3.4.4",
+    "lodash-es": "^4.17.21",
     "socket.io-client": "^2.3.0",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",
@@ -48,7 +49,6 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "src/**/*.{js,vue}": [
-    ]
+    "src/**/*.{js,vue}": []
   }
 }

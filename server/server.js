@@ -10,7 +10,7 @@ const io = require('socket.io')(http, {
   // upgradeTimeout: 10000,
   // maxHttpBufferSize: 100000000,
   // allowUpgrades: true,
-  // transports: 'websocket'
+  transports: 'websocket'
 })
 const Task = require('./task')
 const cors = require('cors')
@@ -27,6 +27,7 @@ task.compile(function (source) {
 io.on('connection', function (socket) {
   let lastSource = ''
   task.watch()
+  console.log('connection......')
   task.onWatch((err, source) => {
     // console.log('-----------------------------------watch start', source)
     if (err) {
