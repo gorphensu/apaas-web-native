@@ -46,7 +46,8 @@ export default {
         iframe.contentWindow.postMessage({
           type: 'updateNativeComponent',
           newCode: res,
-          compName: ComponentJSon.name
+          compName: ComponentJSon.name,
+          isShadow: ComponentJSon.isShadow // 开启沙箱模式
           // compName: 'my-testctrl'
         }, '*')
         iframe.contentWindow.postMessage({
